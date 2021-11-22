@@ -23,6 +23,9 @@ set ruler
 set smartindent
 set autoindent
 
+" Bells
+set belloff=all
+
 " Window Navigation
 map <C-j> <C-W>j
 map <C-k> <C-W>k
