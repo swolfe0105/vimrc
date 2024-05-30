@@ -17,11 +17,15 @@ colorscheme desert
 " General Config
 set showmatch
 set tw=80
+set nowrap
 set laststatus=2
 set number
 set ruler
 set smartindent
 set autoindent
+
+" stop auto wrapping when in insert mode
+set formatoptions-=t
 
 " Bells
 set belloff=all
@@ -74,8 +78,21 @@ map <F9> mz:execute TabToggle()<CR>'z
 "" Airline
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep='>'
+augroup HITABFILL
+    autocmd!
+    autocmd User AirlineAfterInit hi airline_tab ctermbg=6
+augroup END
+
 
 "" NerdTree
 let g:NERDTreeWinPos="right"
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
+
+" Git-Gutter Colors
+let g:gitgutter_override_sign_column_highlight = 0
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
+highlight GitGutterChangeDelete ctermfg=4
